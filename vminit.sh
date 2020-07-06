@@ -1,3 +1,5 @@
+# Sets up all dependencies on a freshly provisioned VM
+
 echo "WARNING: Script not compelete"
 while true; do
     read -p "Do you want to continue?" yn
@@ -17,6 +19,9 @@ sudo apt -y dist-upgrade
 echo "Installing pip3..."
 echo
 sudo apt install -y python3-pip
+echo "Getting list of latest Nvidia drivers"
+echo
+sudo apt install ubuntu-drivers-common
 latest_nvidia_driver=$(ubuntu-drivers list | tail -1)
 echo "The latest driver is...${latest_nvidia_driver}"
 echo
